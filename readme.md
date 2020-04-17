@@ -5,6 +5,8 @@ Two styles of EMS are demonstrated in the "microgrid_WithESSOpt.slx" model:
 - Heuristic approach using State Machine Logic (Stateflow)
 - Optimization-based approach to minimize cost subject to operational constraints
 
+[![View Microgrid Energy Management System (EMS) using Optimization on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/73139-microgrid-energy-management-system-ems-using-optimization)
+
 ## Getting Started
 
 The slides, "EMS_Optimization_Formulation.pdf", walk through the formulation of the optimization problem and the assumptions that were made. Additionally, a video walkthrough of this example can be found here: https://www.mathworks.com/support/search.html/videos/energy-storage-optimization-1572452905678.html
