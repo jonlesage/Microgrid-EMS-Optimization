@@ -1,6 +1,9 @@
 load pvLoadPriceData.mat;
 costDataOffset = costData + 5;
 
+% Scale EMT Simulation to Approximate 24 hours
+timeScale = 1000;
+
 % Microgrid Settings
 panelArea = 2500;   % Area of PV Array [m^2]
 panelEff = 0.3;     % Efficiency of Array
@@ -56,15 +59,15 @@ for i = 1:N
     PloadMat(i,:) = loadDataOpt(i:i+M-1,loadSelect);
 end
 
-CostForecast.time = tvec;
+CostForecast.time = tvec/timeScale;
 CostForecast.signals.values = CostMat;
 CostForecast.signals.dimensions = M;
 
-PpvForecast.time = tvec;
+PpvForecast.time = tvec/timeScale;
 PpvForecast.signals.values = PpvMat;
 PpvForecast.signals.dimensions = M;
 
-PloadForecast.time = tvec;
+PloadForecast.time = tvec/timeScale;
 PloadForecast.signals.values = PloadMat;
 PloadForecast.signals.dimensions = M;
 

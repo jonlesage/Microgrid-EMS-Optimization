@@ -22,8 +22,8 @@ out = sim(in,'ShowProgress','off');
 % Plot Results
 subplot(2,1,1)
 for i = 1:numel(in)
-    plot(out(i).logsout{4}.Values.Time/3600,...
-        out(i).logsout{4}.Values.Data,'LineWidth',2); hold on;
+    plot(out(i).logsout{1}.Values.Time/3600*timeScale,...
+        out(i).logsout{1}.Values.Data,'LineWidth',2); hold on;
 end
 title('Cumulative Grid Cost ($)');
 xlabel('Time (hours)'); ylabel('Rolling Cost ($)');
@@ -32,7 +32,7 @@ grid on;
 
 subplot(2,1,2)
 for i = 1:numel(in)
-    plot(out(i).logsout{2}.Values.Time/3600,...
+    plot(out(i).logsout{2}.Values.Time/3600*timeScale,...
         out(i).logsout{2}.Values.Data,'LineWidth',2); hold on;
 end
 title('Cumulative Grid Usage (kW-h)');
@@ -41,8 +41,8 @@ legend('Heuristic','Optimization','No Storage','Location','northwest');
 grid on; hold off;
 
 % Compare Final Cost
-costHeuristic = out(1).logsout{4}.Values.Data(end);
-costOpt = out(2).logsout{4}.Values.Data(end);
+costHeuristic = out(1).logsout{1}.Values.Data(end);
+costOpt = out(2).logsout{1}.Values.Data(end);
 perDiff = (costOpt-costHeuristic)/costHeuristic;
 
 disp(['Heuristic EMS Cost: $ ' num2str(costHeuristic)]);
